@@ -37,7 +37,7 @@ task main()
 	while (true)
 	{
 		getJoystickSettings(joystick);
-		// Make the motors move.
+
 		motor[motorA] = joystickToMotor(joystick.joy1_y1);
 		motor[motorB] = joystickToMotor(joystick.joy1_y2);
 
