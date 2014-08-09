@@ -16,7 +16,7 @@
 int joystickToMotor(int joystickVal)
 {
 	// Check if joystick is in the deadzone.
-	if (abs(joystickVal) < 10)
+	if (abs(joystickVal) <= 10)
 	{
 		return 0;
 	}
