@@ -26,6 +26,10 @@ int joystickToMotor(int joystickVal)
 		joystickVal = joystickVal - 10;
 		return joystickVal*20/54;
 	}
+	else if (joystickVal = 127)
+	{
+		return joystickVal*100/127
+	}
 	else
 	{
 		return joystickVal*100/128;
