@@ -11,29 +11,25 @@
    		joystickVal the value that the joystick provides (-128 to +127)
 
    Return value:
-   		tetrix motor value (-100 to +100)
+   		tetrix motor value (-100 to +100 (Technically only +99))
 */
 int joystickToMotor(int joystickVal)
 {
+	int motorValue = 0;
 	// Check if joystick is in the deadzone.
-	if (abs(joystickVal) <= 10)
-	{
-		return 0;
+	if (abs(joystickVal) <= 10){
+		//Do nothing since motorValue is 0 by default.
 	}
 	// Gradual increase in the values of the motor.
-	else if (abs(joystickVal) <= 64)
-	{
-		joystickVal = joystickVal - 10;
-		return joystickVal*20/54;
+	else if (abs(joystickVal) <= 64){
+		//Fixed to account for positive or negative joystick inputs
+		motorValue = ((abs(joystickVal)-10)*sgn(joystickVal))*20/54; //I would probably write a function to make this algorithm more flexible.
 	}
-	else if (joystickVal = 127)
-	{
-		return joystickVal*100/127
+	// Faster increase in the values of the motor.
+	else if (abs(joystickVal) <= 128){
+		motorValue = joystickVal*100/128;
 	}
-	else
-	{
-		return joystickVal*100/128;
-	}
+	return motorValue;
 }
 
 task main()
