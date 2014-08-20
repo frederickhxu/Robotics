@@ -15,10 +15,12 @@
 */
 int joystickToMotor(int joystickVal)
 {
+	/*
 	int motorValue = 0;
 	// Check if joystick is in the deadzone.
 	if (abs(joystickVal) <= 10){
 		//Do nothing since motorValue is 0 by default.
+		return motorValue;
 	}
 	// Gradual increase in the values of the motor.
 	else if (abs(joystickVal) <= 64){
@@ -30,6 +32,8 @@ int joystickToMotor(int joystickVal)
 		motorValue = joystickVal*100/128;
 	}
 	return motorValue;
+	*/
+	return joystickVal*100/128;
 }
 
 task main()
@@ -40,6 +44,8 @@ task main()
 		// Make the motors move.
 		motor[motorA] = joystickToMotor(joystick.joy1_y1);
 		motor[motorB] = joystickToMotor(joystick.joy1_y2);
-
+		string example;
+		StringFormat(example, "Joy: %d %d", joystick.joy1_y1, joystick.joy1_y2);
+		nxtDisplayTextLine(4, example);
 	}
 }
