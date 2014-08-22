@@ -42,8 +42,8 @@ task main()
 	{
 		getJoystickSettings(joystick);
 		// Make the motors move.
-		motor[motorA] = joystickToMotor(joystick.joy1_y1);
-		motor[motorB] = joystickToMotor(joystick.joy1_y2);
+		motor[leftMotor] = joystickToMotor(joystick.joy1_y1);
+		motor[rightMotor] = joystickToMotor(joystick.joy1_y2);
 		string example;
 		StringFormat(example, "Joy: %d %d", joystick.joy1_y1, joystick.joy1_y2);
 		nxtDisplayTextLine(4, example);
